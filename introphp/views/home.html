@@ -1,0 +1,27 @@
+<div ng-controller="HomeController" class="container" >
+    <h1>Llistat cases d'oficis</h1>
+    <table border="1">
+        <tr ng-repeat= "dato in datos"><td ng-click="buscaEspecialidades(dato.idCasa)">{{dato.nombre}}</td></tr>
+    </table>
+
+    <select ng-hide="muestraEspe" ng-model="espSelec" ng-change="buscaAlumnos()">
+        <option value="-1" ng-selected="espSelec==-1">--Selecciona Especialitat</option>
+        <option ng-value="esp.idEsp" ng-repeat="esp in datosEspecialitats" ng-selected="espSelec==esp.idEsp">{{esp.nomEspecialitat}}</option>
+    </select>
+
+    <img ng-src="img/{{alumno.imatge}}">
+
+    <div class="card" style="width: 18rem;" ng-repeat="alumne in alumnes">
+		  <img ng-src="img/{{alumne.imatge!=NULL ? alumne.imatge : 'in_Foto' }}.png" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">{{alumne.nom}}</h5>
+		  </div>
+		  <ul class="list-group list-group-flush">
+		    <li class="list-group-item">{{alumne.cog1}} {{alumne.cog2}}</li>
+		  </ul>
+		  <button class="btn-primary" ng-click="editaAlumno()">Editar contenido</button>
+	</div>
+	
+    
+
+    </div>
